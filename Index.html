@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José Elías González Ozuna - CV Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Variables CSS */
+        :root {
+            --primary-blue: #2563eb;
+            --primary-purple: #7c3aed;
+            --dark-blue: #1e40af;
+            --light-gray: #f8fafc;
+            --medium-gray: #64748b;
+            --dark-gray: #334155;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --gradient-primary: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            --gradient-secondary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --border-radius: 16px;
+            --border-radius-sm: 8px;
+            --animation-speed: 0.3s;
+        }
+
+        /* Reset y base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--dark-gray);
+            background: var(--light-gray);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Elementos flotantes mejorados */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .circle-1 { width: 100px; height: 100px; top: 10%; left: 10%; animation-delay: 0s; }
+        .circle-2 { width: 150px; height: 150px; top: 60%; right: 10%; animation-delay: 7s; }
+        .circle-3 { width: 80px; height: 80px; bottom: 20%; left: 60%; animation-delay: 3s; }
+        .circle-4 { width: 120px; height: 120px; top: 30%; left: 70%; animation-delay: 10s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(120deg); }
+            66% { transform: translateY(30px) rotate(240deg); }
+        }
+
+        /* Contenedor principal */
+        .cv-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--white);
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        /* Header mejorado */
+        .header {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: backgroundMove 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes backgroundMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-circle {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            animation: profilePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes profilePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .name-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .job-title, .specialization {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .highlight {
+            font-size: 1.2em;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.2) rotate(180deg); }
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all var(--animation-speed) ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .contact-item::before {
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+        }
+
+        .contact-item[data-type="location"]::before { content: '\f3c5'; }
+        .contact-item[data-type="email"]::before { content: '\f0e0'; }
+        .contact-item[data-type="phone"]::before { content: '\f095'; }
+
+        .download-btn {
+            padding: 1rem 2rem;
+            background: var(--white);
+            color: var(--primary-blue);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all var(--animation-speed) ease;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Contenido principal */
+        .main-content {
+            padding: 3rem 2rem;
+        }
+
+        /* Secciones */
+        .section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Cards mejoradas */
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #e2e8f0;
+            transition: all var(--animation-speed) ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: left var(--animation-speed) ease;
+        }
+
+        .card:hover::before {
+            left: 0;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Experiencia */
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .experience-card .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .job-title-card {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .job-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+        }
+
+        .company {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .separator {
+            color: var(--medium-gray);
+        }
+
+        .job-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-secondary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .responsibilities {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .responsibilities li {
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--dark-gray);
+        }
+
+        .responsibilities li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        /* Educación */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .education-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .education-status {
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-current {
+            background: #dbeafe;
+            color: var(--primary-blue);
+        }
+
+        .status-completed {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        .education-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+
+        .education-details {
+            color: var(--medium-gray);
+        }
+
+        .institution {
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Habilidades */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skills-category {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+
+        .skills-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .skills-card li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem;
+            background: #f8fafc;
+            border-radius: var(--border-radius-sm);
+            transition: all var(--animation-speed) ease;
+        }
+
+        .skills-card li:hover {
+            background: #e2e8f0;
+            transform: translateX(5px);
+        }
+
+        /* Barra de progreso para habilidades */
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-progress {
+            width: 100%;
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-progress-bar {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 3px;
+            transition: width 1s ease-in-out;
+            width: 0;
+        }
+
+        /* Idiomas */
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .language-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: var(--border-radius);
+            transition: all var(--animation-speed) ease;
+        }
+
+        .language-item:hover {
+            background: var(--gradient-primary);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+
+        .language-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .language-level {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Modo oscuro */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --light-gray: #0f172a;
+                --white: #1e293b;
+                --dark-gray: #f1f5f9;
+                --medium-gray: #cbd5e1;
+            }
+
+            .card {
+                border-color: #334155;
+            }
+
+            .skills-card li,
+            .language-item {
+                background: #334155;
+            }
+
+            .skills-card li:hover {
+                background: #475569;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 3rem 1rem;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .experience-card .card-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .job-details {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+
+            .separator {
+                display: none;
+            }
+        }
+
+        /* Animación de carga */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Indicador de scroll */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-indicator"></div>
+    
+    <div class="cv-container">
+        <!-- Elementos flotantes de fondo -->
+        <div class="floating-elements">
+            <div class="floating-circle circle-1"></div>
+            <div class="floating-circle circle-2"></div>
+            <div class="floating-circle circle-3"></div>
+            <div class="floating-circle circle-4"></div>
+        </div>
+
+        <!-- Header principal -->
+        <header class="header">
+            <div class="header-content">
+                <div class="profile-circle">
+                    <span>JE</span>
+                </div>
+                
+                <h1 class="name-title" id="nameTitle"></h1>
+                
+                <div class="subtitle">
+                    <div class="job-title">
+                        <span class="highlight">✨</span>
+                        Ingeniero en Sistemas Computacionales
+                    </div>
+                    <div class="specialization">
+                        <span class="highlight">⚡</span>
+                        Especialista en Ciberseguridad
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-item" data-type="location">
+                        Tuxtla Gutiérrez, Chiapas
+                    </div>
+                    <div class="contact-item" data-type="email">
+                        joseeliasgonzalezozuna@gmail.com
+                    </div>
+                    <div class="contact-item" data-type="phone">
+                        961 182 2438
+                    </div>
+                </div>
+
+                <button class="download-btn" onclick="downloadCV()">
+                    <i class="fas fa-download"></i> Descargar CV
+                </button>
+            </div>
+        </header>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Perfil Profesional -->
+            <section class="section" data-section="perfil">
+                <div class="section-header">
+                    <div class="section-icon">🎯</div>
+                    <h2 class="section-title">Perfil Profesional</h2>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <p class="profile-text">
+                            Ingeniero en Sistemas Computacionales con sólida experiencia en desarrollo web,
+                            soporte técnico y ciberseguridad. Especializado en la resolución de problemas complejos,
+                            innovación tecnológica y liderazgo de equipos multiculturales. Actualmente cursando
+                            Maestría en Ciberseguridad con enfoque en protección de sistemas críticos y análisis
+                            de vulnerabilidades.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experiencia Profesional -->
+            <section class="section" data-section="experiencia">
+                <div class="section-header">
+                    <div class="section-icon">💼</div>
+                    <h2 class="section-title">Experiencia Profesional</h2>
+                </div>
+                
+                <div class="experience-grid">
+                    <!-- Camp Farley -->
+                    <div class="card experience-card">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="job-info">
+                                    <h3 class="job-title-card">Asistente de Cocina</h3>
+                                    <div class="job-details">
+                                        <span class="company">Camp Farley</span>
+                                        <span class="separator">•</span>
+                                        <span class="location">Mashpee, Massachusetts</span>
+                                        <span class="separator">•</span>
+                                        <span class="period">2023—2025</span>
+                                    </div>
+                                </div>
+                                <div class="job-icon">👥</div>
+                            </div>
+                            <ul class="responsibilities">
+                                <li>Coordinación eficiente en la preparación de alimentos para grandes volúmenes</li>
+                                <li>Liderazgo y colaboración en equipos multiculturales bajo alta presión</li>
+                                <li>Desarrollo de habilidades de gestión del tiempo y disciplina operacional</li>
+                                <li>Implementación de protocolos de seguridad alimentaria e higiene</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Distribuidora Mercantil -->
+                    <div class="card experience-card">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="job-info">
+                                    <h3 class="job-title-card">Desarrollador Web Full-Stack</h3>
+                                    <div class="job-details">
+                                        <span class="company">Distribuidora Mercantil del Sureste</span>
+                                        <span class="separator">•</span>
+                                        <span class="location">Tuxtla Gutiérrez, Chiapas</span>
+                                        <span class="separator">•</span>
+                                        <span class="period">2022</span>
+                                    </div>
+                                </div>
+                                <div class="job-icon">💻</div>
+                            </div>
+                            <ul class="responsibilities">
+                                <li>Desarrollo de aplicaciones web responsivas con JavaScript ES6+ y React.js</li>
+                                <li>Implementación de APIs RESTful y integración con bases de datos MySQL</li>
+                                <li>Optimización de procesos administrativos mediante automatización</li>
+                                <li>Mantenimiento y actualización de sistemas legacy con mejoras de rendimiento</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Tribunal de Justicia -->
+                    <div class="card experience-card">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="job-info">
+                                    <h3 class="job-title-card">Especialista en Soporte Técnico</h3>
+                                    <div class="job-details">
+                                        <span class="company">Tribunal de Justicia Administrativa de Chiapas</span>
+                                        <span class="separator">•</span>
+                                        <span class="location">Tuxtla Gutiérrez, Chiapas</span>
+                                        <span class="separator">•</span>
+                                        <span class="period">2019—2020</span>
+                                    </div>
+                                </div>
+                                <div class="job-icon">🛡️</div>
+                            </div>
+                            <ul class="responsibilities">
+                                <li>Diagnóstico y resolución de incidencias en infraestructura de TI</li>
+                                <li>Administración de redes locales y implementación de medidas de seguridad</li>
+                                <li>Eliminación de malware y fortalecimiento de sistemas contra amenazas</li>
+                                <li>Capacitación a usuarios finales en buenas prácticas de seguridad informática</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Educación -->
+            <section class="section" data-section="educacion">
+                <div class="section-header">
+                    <div class="section-icon">🎓</div>
+                    <h2 class="section-title">Educación</h2>
+                </div>
+                
+                <div class="education-grid">
+                    <div class="card education-card">
+                        <div class="card-content">
+                            <div class="education-header">
+                                <div class="education-icon">✨</div>
+                                <span class="education-status status-current">En Curso</span>
+                            </div>
+                            <h3 class="education-title">Maestría en Ciberseguridad</h3>
+                            <div class="education-details">
+                                <div class="institution">Universidad Autónoma de Guadalajara</div>
+                                <div class="period">2025— (En curso)</div>
+                                <div class="specialization-details">
+                                    Especialización en análisis de vulnerabilidades, forense digital y gestión de riesgos
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card education-card">
+                        <div class="card-content">
+                            <div class="education-header">
+                                <div class="education-icon">🎓</div>
+                                <span class="education-status status-completed">Completado</span>
+                            </div>
+                            <h3 class="education-title">Ingeniería en Sistemas Computacionales</h3>
+                            <div class="education-details">
+                                <div class="institution">Universidad Valle del Grijalva</div>
+                                <div class="period">2017—2020</div>
+                                <div class="specialization-details">
+                                    Enfoque en desarrollo de software, redes y seguridad informática
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Habilidades Técnicas -->
+            <section class="section" data-section="habilidades">
+                <div class="section-header">
+                    <div class="section-icon">💻</div>
+                    <h2 class="section-title">Habilidades Técnicas</h2>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="card skills-card">
+                        <div class="card-content">
+                            <h3 class="skills-category">Lenguajes de Programación</h3>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>React.js / Node.js</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" data-width="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Docker / Kubernetes</span>
+                                    <span>70%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" data-width="70"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Git / GitHub</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" data-width="85"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card skills-card">
+                        <div class="card-content">
+                            <h3 class="skills-category">Bases de Datos & Sistemas</h3>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>MySQL / PostgreSQL</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" data-width="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>MongoDB</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" data-width="75"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Linux / Windows Server</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" data-width="80"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card skills-card">
+                        <div class="card-content">
+                            <h3 class="skills-category">Ciberseguridad</h3>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Análisis de Vulnerabilidades</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" data-width="75"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Forense Digital</span>
+                                    <span>70%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" data-width="70"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Gestión de Riesgos</span>
+                                    <span>65%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" data-width="65"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certificaciones -->
+            <section class="section" data-section="certificaciones">
+                <div class="section-header">
+                    <div class="section-icon">🏆</div>
+                    <h2 class="section-title">Certificaciones & Cursos</h2>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="certifications-grid">
+                            <div class="cert-item">
+                                <h4>CompTIA Security+ (En preparación)</h4>
+                                <p>Fundamentos de ciberseguridad y mejores prácticas</p>
+                            </div>
+                            <div class="cert-item">
+                                <h4>OWASP Top 10</h4>
+                                <p>Vulnerabilidades más críticas en aplicaciones web</p>
+                            </div>
+                            <div class="cert-item">
+                                <h4>Docker & Containerization</h4>
+                                <p>Virtualización y despliegue de aplicaciones</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Idiomas -->
+            <section class="section" data-section="idiomas">
+                <div class="section-header">
+                    <div class="section-icon">🌍</div>
+                    <h2 class="section-title">Idiomas</h2>
+                </div>
+                
+                <div class="languages-grid">
+                    <div class="language-item">
+                        <div class="language-name">Español</div>
+                        <div class="language-level">Nativo</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">Inglés</div>
+                        <div class="language-level">Intermedio Avanzado (B2)</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">Italiano</div>
+                        <div class="language-level">Básico (A2)</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Proyectos Destacados -->
+            <section class="section" data-section="proyectos">
+                <div class="section-header">
+                    <div class="section-icon">🚀</div>
+                    <h2 class="section-title">Proyectos Destacados</h2>
+                </div>
+                
+                <div class="projects-grid">
+                    <div class="card project-card">
+                        <div class="card-content">
+                            <h3 class="project-title">Sistema de Gestión Administrativa</h3>
+                            <p class="project-description">
+                                Desarrollo completo de sistema web para automatización de procesos administrativos
+                                en Distribuidora Mercantil, reduciendo tiempos de procesamiento en un 40%.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React.js</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">Docker</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card project-card">
+                        <div class="card-content">
+                            <h3 class="project-title">Análisis de Seguridad de Red</h3>
+                            <p class="project-description">
+                                Implementación de herramientas de monitoreo y análisis de vulnerabilidades
+                                en la infraestructura del Tribunal de Justicia Administrativa.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Nmap</span>
+                                <span class="tech-tag">Wireshark</span>
+                                <span class="tech-tag">Linux</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Configuración
+        const TYPING_SPEED = 80;
+        const FULL_NAME = "José Elías González Ozuna";
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeAnimations();
+            setupIntersectionObserver();
+            typeWriterEffect();
+            initializeProgressBars();
+            setupScrollIndicator();
+            addSmoothScrolling();
+        });
+
+        // Efecto de escritura mejorado
+        function typeWriterEffect() {
+            const nameElement = document.getElementById('nameTitle');
+            if (!nameElement) return;
+            
+            let index = 0;
+            nameElement.textContent = '';
+            nameElement.style.borderRight = '3px solid white';
+            
+            function type() {
+                if (index < FULL_NAME.length) {
+                    nameElement.textContent += FULL_NAME.charAt(index);
+                    index++;
+                    setTimeout(type, TYPING_SPEED);
+                } else {
+                    // Efecto de cursor parpadeante
+                    setTimeout(() => {
+                        nameElement.style.borderRight = 'none';
+                    }, 1000);
+                }
+            }
+            
+            setTimeout(type, 800);
+        }
+
+        // Descargar CV mejorado
+        function downloadCV() {
+            // Simular descarga - en producción, usar un PDF real
+            const link = document.createElement('a');
+            link.href = '#'; // Aquí iría la ruta real del PDF
+            link.download = 'Jose_Elias_Gonzalez_CV.pdf';
+            
+            // Animación de feedback
+            const btn = document.querySelector('.download-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> ¡Descargando!';
+            btn.style.background = '#10b981';
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+            }, 2000);
+            
+            // link.click(); // Descomentar para descarga real
+        }
+
+        // Animaciones con IntersectionObserver mejorado
+        function setupIntersectionObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Animar barras de progreso cuando la sección es visible
+                        if (entry.target.dataset.section === 'habilidades') {
+                            animateProgressBars();
+                        }
+                    }
+                });
+            }, { 
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.section').forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        // Inicializar barras de progreso
+        function initializeProgressBars() {
+            document.querySelectorAll('.skill-progress-bar').forEach(bar => {
+                bar.style.width = '0%';
+            });
+        }
+
+        // Animar barras de progreso
+        function animateProgressBars() {
+            document.querySelectorAll('.skill-progress-bar').forEach((bar, index) => {
+                const targetWidth = bar.dataset.width + '%';
+                setTimeout(() => {
+                    bar.style.width = targetWidth;
+                }, index * 200);
+            });
+        }
+
+        // Animaciones hover mejoradas
+        function initializeAnimations() {
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-8px) scale(1.02)';
+                    card.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Efecto parallax para elementos flotantes
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallax = document.querySelectorAll('.floating-circle');
+                const speed = 0.5;
+
+                parallax.forEach((element, index) => {
+                    const yPos = -(scrolled * speed * (index + 1) * 0.1);
+                    element.style.transform = `translateY(${yPos}px)`;
+                });
+            });
+        }
+
+        // Indicador de progreso de scroll
+        function setupScrollIndicator() {
+            const indicator = document.querySelector('.scroll-indicator');
+            
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                indicator.style.width = scrolled + '%';
+            });
+        }
+
+        // Scroll suave a secciones
+        function addSmoothScrolling() {
+            // Agregar navegación suave si se implementan enlaces de navegación
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Efectos adicionales
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.floating-elements');
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            
+            // Efecto parallax sutil en elementos flotantes
+            cursor.style.transform = `translate(${x * 0.02}px, ${y * 0.02}px)`;
+        });
+
+        // Animación de aparición escalonada para las cards
+        function staggerAnimation() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('fade-in-up');
+            });
+        }
+
+        // Inicializar animaciones escalonadas después de la carga
+        setTimeout(staggerAnimation, 1000);
+    </script>
+
+    <style>
+        /* Estilos adicionales para certificaciones y proyectos */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-item {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: var(--border-radius-sm);
+            border-left: 4px solid var(--primary-blue);
+            transition: all var(--animation-speed) ease;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .cert-item h4 {
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-item p {
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: var(--medium-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            padding: 0.3rem 0.8rem;
+            background: var(--gradient-primary);
+            color: var(--white);
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .specialization-details {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--medium-gray);
+        }
+
+        /* Responsive para nuevas secciones */
+        @media (max-width: 768px) {
+            .certifications-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-tag {
+                font-size: 0.75rem;
+                padding: 0.2rem 0.6rem;
+            }
+        }
+    </style>
+</body>
+</html>
+                                    <span>JavaScript/TypeScript</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" data-width="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Python</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" data-width="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>HTML/CSS</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" data-width="95"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card skills-card">
+                        <div class="card-content">
+                            <h3 class="skills-category">Frameworks & Herramientas</h3>
+                            <div class="skill-item">
+                                <div class="skill-info">
